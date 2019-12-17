@@ -1,26 +1,32 @@
-# librus-api
+# librus-api-relibrused
 [![npm](https://img.shields.io/npm/v/librus-api.svg?style=flat)](https://www.npmjs.com/package/librus-api)
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat)](http://opensource.org/licenses/MIT)
 
 Simple node.js Librus scraping API module
+A fork of librus-api with a working message system
+WARNING!!! Librus.authorize STOPPED BEING A PROMISE FUNCTION
 
 ## Installation:
 ```
-npm install librus-api
+(not for this fork)npm install librus-api
+Download and put in node_modules/librus-api or node_modules/librus-api-relibrused
 ```
 
 ## Usage
 ```javascript
-'use strict';
-const Librus = require("librus-api");
+const Librus = require("librus-api"); / const Librus = require("librus-api-relibrused");
 
 let client = new Librus();
-client.authorize("login", "pass").then(function () {
+client.authorize("login", "pass")
+
   // Send message to User 648158
   client.inbox.sendMessage(648158, "title", "body").then(() => { /** sucess */ }, () => { /** fail **/ });
 
-  // Remove message with id 4534535
-  client.inbox.removeMessage(4534535).then(() => { /** sucess */ }, () => { /** fail **/ });
+  // Remove message in folder 5 with id 4534535  
+  client.inbox.removeMessage(5, 4534535).then(() => { /** sucess */ }, () => { /** fail **/ });
+
+  // Recover message with id 4534535 from trash
+  client.inbox.recoverMessage(4534535).then(() => { /** sucess */ }, () => { /** fail **/ });
 
   // List receivers
   client.inbox.listReceivers("nauczyciel").then(data => {});
@@ -72,14 +78,13 @@ client.authorize("login", "pass").then(function () {
 
   // Get notifications
   client.info.getNotifications().then(data => {});
-});
 
 ```
 
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019/2020 Mateusz Bagiński
+Copyright (c) 2019/2020 Mateusz Bagiński, Mikołaj Gazeel
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
