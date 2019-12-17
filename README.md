@@ -13,6 +13,7 @@ listInbox now lists all pages instead of only the first one
 recoverMessage can move messages from trash
 sendMessage has been fixed
 listRecivers has been fixed
+authorize now ommits promises, gets the oauth_token properly and gets a hold of 'request key'
 ```
 
 ## Installation:
@@ -93,7 +94,7 @@ client.authorize("login", "pass")
 ## License
 The MIT License (MIT)
 
-Copyright (c) 2019/2020 Mateusz Bagiński, Mikołaj Gazeel (Kod wprowadzony w forku librus-api)
+Copyright (c) 2019/2020 Mateusz Bagiński, Mikołaj Gazeel (Kod wprowadzony w forku librus-api/Code added in the librus-api fork)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
