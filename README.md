@@ -4,7 +4,16 @@
 
 Simple node.js Librus scraping API module
 A fork of librus-api with a working message system
+
 WARNING!!! Librus.authorize STOPPED BEING A PROMISE FUNCTION
+
+## Changes
+```
+listInbox now lists all pages instead of only the first one
+recoverMessage can move messages from trash
+sendMessage has been fixed
+listRecivers has been fixed
+```
 
 ## Installation:
 ```
