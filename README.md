@@ -12,7 +12,8 @@ listInbox now lists all pages instead of only the first one
 recoverMessage can move messages from trash
 sendMessage has been fixed
 listRecivers has been fixed
-authorize now ommits promises, gets the oauth_token properly and gets a hold of 'request key'
+authorize now ommits promises, gets the oauth_token properly and gets a hold of 'request key', the third argument of authorize is callback
+authorize will throw sensible information is case of wrong password/login, instead of spitting random data to the console
 ```
 
 ## Installation:
@@ -26,7 +27,7 @@ Download and put in node_modules/librus-api or node_modules/librus-api-relibruse
 const Librus = require("librus-api"); / const Librus = require("librus-api-relibrused");
 
 let client = new Librus();
-client.authorize("login", "pass")
+client.authorize("login", "pass",() => {
 
   // Send message to User 648158
   client.inbox.sendMessage(648158, "title", "body").then(() => { /** sucess */ }, () => { /** fail **/ });
@@ -87,6 +88,8 @@ client.authorize("login", "pass")
 
   // Get notifications
   client.info.getNotifications().then(data => {});
+
+});
 
 ```
 
